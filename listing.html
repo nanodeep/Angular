@@ -1,0 +1,31 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="appname.js"></script>
+<style>
+body {
+    font-family: Verdana,sans-serif;
+    }    
+</style>
+<body ng-app='myfirstapp'>
+<div ng-controller='namectrlr' >     
+     <form>
+   <p> ENTER THE NAME:
+   <input type="text" ng-model='modeItem'/>  
+   </p>
+   <button ng-click='addthename(modeItem)'>Click to Add</button>
+   </form>  
+   <h3>NAME LIST</h3>
+   <div ng-repeat='i in nameList'> 
+ <span ng-click="editing = true">{{i}}</span>
+   <form ng-show="editing" ng-submit="editing = false">
+                   <input type="text" ng-model='i'/>
+                    <br/>                    
+                    <button type="submit">Save</button>
+                    <button type="button" ng-click='remove(i)'>Delete</button>
+                  </form>
+   
+    </div>      
+    </div>   
+</body>
+</html>
